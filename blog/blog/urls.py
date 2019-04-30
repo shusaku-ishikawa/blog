@@ -19,8 +19,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('blogging.urls')),  # マイアプリ
+    path('blog/admin/', admin.site.urls),
+    path('blog/', include('blogging.urls')),  # マイアプリ
     path('markdownx/', include('markdownx.urls')),  # これ
 ] + static( settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
