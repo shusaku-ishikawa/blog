@@ -1,0 +1,20 @@
+{% extends "blogging/base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+    .toc ul {
+        color: #668ad8;/*文字色*/
+        border: dashed 2px #668ad8;/*破線 太さ 色*/
+        background: #f1f8ff; /*背景色*/
+        padding: 0.5em 0.5em 0.5em 2em;
+    }
+</style>
+
+    <h1>{{ object.title }}</h1>
+    <span>投稿日: {{ object.published_at| date:"y/n/j G:i" }}</span>
+    {{ object.to_markdown| safe }}
+{% endblock %}
+

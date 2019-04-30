@@ -1,0 +1,11 @@
+{% extends "blogging/base.html" %}
+{% block content %}
+{% load static %}
+    <hr>
+    {% for object in object_list %}
+    <a href="{% url 'blogging:post_detail' object.pk %}"><h3>{{ object.title }}</h3></a>
+    <span>投稿日: {{ object.published_at| date:"y/n/j G:i" }}</span>
+    <p>{{ object.abstract }}</p>
+    <hr>
+    {% endfor %}
+{% endblock %}
